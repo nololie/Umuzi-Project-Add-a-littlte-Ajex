@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <form id=visitorForm action="addNewVisitor" method="POST" autocomplete="on">
+    <form id=visitorForm method="post" autocomplete="on">
         <label for="visitorName">Visitor Name</label><br>
         <input required type="text" id="visitorName" name="visitorName" autofocus><br>
         <label for="helperName">Your Name</label><br>
@@ -21,7 +21,7 @@
         <input required type="time" id="VisitTime" name="time"><br>
         <label for="comments">Add Comments</label><br>
         <input required type="text" class="comments" name="comments"><br>
-        <input type="submit" value="Submit">
+        <input id='SumitButton' type="submit" value="Submit">
     </form>
 </body>
 
