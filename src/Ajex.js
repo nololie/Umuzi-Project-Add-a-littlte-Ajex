@@ -18,7 +18,7 @@ function start() {
         var comments = document.getElementById('comments')
 
 
-        xmlhttp.send(`visitorName=${visitorName.value}&assistentName=${assistentName.value}&visitorAge=${visitorAge.value}&visitDate='${visitDate.value}'&visitTime='${visitTime.value}'&comments=${comments.value}`);    //"Sending the XMLHttpRequest"
+        xmlhttp.send(`visitorName=${visitorName.value}&assistentName=${assistentName.value}&visitorAge=${visitorAge.value}&visitDate=${visitDate.value}&visitTime=${visitTime.value}&comments=${comments.value}`);    //"Sending the XMLHttpRequest"
     
     } else {
         xmlhttp = false;

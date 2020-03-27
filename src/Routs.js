@@ -23,7 +23,7 @@ app.post('/addNewVisitor', async(req, res) => {
     console.log(req.body)
 
     let record = await client.query(
-        `INSERT INTO visitors(
+    `INSERT INTO visitors(
     visitorName, 
     assistantName, 
     visitorAge, 
