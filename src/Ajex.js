@@ -1,106 +1,32 @@
-'use strict';
-// var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
-const express = require('express');
-const path = require('path');
-require('dotenv').config();
+function start() {
+    var xmlhttp;
+    if (window.XMLHttpRequest) {
+    
+        xmlhttp = new XMLHttpRequest(); //creationg an XMLHttpRequest object
+        
+        console.log("I've started.")    //test purposes
+        
+        xmlhttp.open("POST","/addNewVisitor",true);    //"Instantiating the object"
 
-const app = express();
-const port = 1221;
+        xmlhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded;charset=UTF-8"); //"Setting the body"
+        
+        var visitorName = document.getElementById('visitorName')
+        var assistentName = document.getElementById('assistentName')
+        var visitorAge = document.getElementById('visitorAge')
+        var visitDate = document.getElementById('visitDate')
+        var visitTime = document.getElementById('visitTime')
+        var comments = document.getElementById('comments')
 
-const { Client } = require("pg");
-const client = new Client();
-client.connect();
 
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-app.use(express.static('.'));
-
-function addCall() {
-    xhttp = new XMLHttpRequest();
-    // oReq.addEventListener("load", reqListener);
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("demo").innerHTML = this.responseText;
-        }
-        xhttp.open("post", "http://localhost:1221/addNewVisitor");
-        xhttp.send();
+        xmlhttp.send(`visitorName=${visitorName.value}&assistentName=${assistentName.value}&visitorAge=${visitorAge.value}&visitDate='${visitDate.value}'&visitTime='${visitTime.value}'&comments=${comments.value}`);    //"Sending the XMLHttpRequest"
+    
+    } else {
+        xmlhttp = false;
+        console.log("I couldn't start.")    //test purposes
     }
 }
 
-app.get('/single-page-app', async(req, res) => {
-    res.sendFile(path.join(__dirname + '/../Ajex.html'))
+window.addEventListener("load", function() {
+    var btn = document.getElementById("SumitButton");
+    btn.addEventListener("click", start);
 });
-
-app.post('/addNewVisitor', async(req, res) => {
-
-    let record = await client.query(
-        `INSERT INTO visitors(
-    visitorName, 
-    assistantName, 
-    visitorAge, 
-    visitDate, 
-    visitTime, 
-    comments)
-    VALUES($1, $2, $3, $4, $5, $6)
-    RETURNING *;`, [req.body.visitorName, req.body.assistentName, req.body.age, req.body.date, req.body.time, req.body.comments])
-
-    res.end();
-});
-
-app.delete('/deleteVisitor:id', async(req, res) => {
-
-    let record = await client.query(`DELETE FROM visitors WHERE visitorid=${req.params.id}`)
-
-    res.send(record);
-
-    res.end();
-});
-
-app.delete('/deleteAllVisitors', async(req, res) => {
-
-    let record = await client.query(`DELETE FROM visitors`)
-
-    res.send(record);
-
-    res.end();
-});
-
-app.get('/viewVisitors', async(req, res) => {
-
-    let record = await client.query(`SELECT * FROM visitors`)
-
-    res.send(record.rows);
-
-    res.end();
-});
-
-app.get('/viewVisitor:id', async(req, res) => {
-
-    let record = await client.query(`SELECT * FROM visitors WHERE visitorid=${req.params.id}`)
-
-    res.send(record.rows);
-
-    res.end();
-});
-
-app.patch('/updateVisitor:id', async(req, res) => {
-
-    let record = await client.query(
-        `UPDATE visitors 
-        SET visitorname='${req.body.visitorname}',
-        asssistantname='${req.body.assistantname}',
-        visitorage=${req.body.visitorage},
-        visitdate=${req.body.visitdate}, 
-        visittime='${req.body.visittime}', 
-        comments='${req.body.comments}'
-        WHERE visitorid=${req.params.id}`
-    )
-
-    res.send(record);
-
-    res.end();
-});
-
-let server = app.listen(port, () => console.log(`Example app listening on port ${port}!`));
-
-module.exports = server;

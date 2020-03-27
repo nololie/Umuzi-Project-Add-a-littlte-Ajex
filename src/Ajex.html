@@ -4,23 +4,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://localhost:1221/src/Ajex.js"></script>
     <title>Ajex Form</title>
 </head>
 
 <body>
-    <form id=visitorForm method="post" autocomplete="on">
+
+    <h2 id=h2>Enter Visit details.</h2>
+    <br>
+
+    <form id=visitorForm autocomplete="on">
         <label for="visitorName">Visitor Name</label><br>
-        <input required type="text" id="visitorName" name="visitorName" autofocus><br>
+        <input type="text" id="visitorName" name="visitorName" autofocus><br>
         <label for="helperName">Your Name</label><br>
-        <input required type="text" id="helperName" name="assistentName"><br>
+        <input type="text" id="assistentName" name="assistentName"><br>
         <label for="visitorAge">Visitor's Age</label><br>
-        <input required type="number" id="visitorAge" name="age"><br>
+        <input type="number" id="visitorAge" name="age"><br>
         <label for="visitDate">Date</label><br>
-        <input required type="date" id="visitDate" name="date"><br>
+        <input type="date" id="visitDate" name="date"><br>
         <label for="VisitTime">Visit Time</label><br>
-        <input required type="time" id="VisitTime" name="time"><br>
+        <input type="time" id="visitTime" name="time"><br>
         <label for="comments">Add Comments</label><br>
-        <input required type="text" class="comments" name="comments"><br>
+        <input type="text" class="comments" name="comments"><br>
         <input id='SumitButton' type="submit" value="Submit">
     </form>
 </body>
