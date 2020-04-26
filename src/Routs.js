@@ -20,8 +20,6 @@ app.get('/single-page-app', async(req, res) => {
 
 app.post('/addNewVisitor', async(req, res) => {
     
-    console.log(req.body)
-
     let record = await client.query(
     `INSERT INTO visitors(
     visitorName, 
@@ -32,6 +30,8 @@ app.post('/addNewVisitor', async(req, res) => {
     comments)
     VALUES($1, $2, $3, $4, $5, $6)
     RETURNING *;`, [req.body.visitorName, req.body.assistentName, req.body.age, req.body.date, req.body.time, req.body.comments])
+
+    res.send(record.rows)
 
     res.end();
 });
