@@ -4,15 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="src/Ajex.js"></script>
     <title>Ajex Form</title>
 </head>
 
-<body>
-
-    <h2 id=h2>Enter Visit details.</h2>
+<body id="body">
+    
+    <h2 id=h1>Enter Visit details.</h2>
     <br>
-
+    
     <form id=visitorForm autocomplete="on">
         <label for="visitorName">Visitor Name</label><br>
         <input required type="text" id="visitorName" name="visitorName" autofocus><br>
@@ -26,8 +25,10 @@
         <input required type="time" id="visitTime" name="visitTime"><br>
         <label for="comments">Add Comments</label><br>
         <input required type="text" class="comments" name="comments"><br>
-        <input id='SumitButton' type="submit" value="Submit">
+        <!-- <input  type="submit" value="Submit"> -->
+        <button id="sumitButton">Send in</button>
     </form>
-</body>
 
+    <script src="http://localhost:1221/src/Ajex.js"></script>
+</body>
 </html>
