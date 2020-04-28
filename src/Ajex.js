@@ -3,7 +3,7 @@ var request = new Request('http://localhost:1221/addNewVisitor', {
 	headers: new Headers({
 		'Content-Type': 'application/json'
     }),
-    body: JSON.stringify(new FormData(document.getElementById("visitorForm")))
+    body: JSON.stringify(new URLSearchParams(new FormData(document.getElementById("visitorForm"))))
 });
 
 function addVisit(e) {
