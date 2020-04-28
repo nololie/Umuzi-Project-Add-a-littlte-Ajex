@@ -29,7 +29,7 @@ app.post('/addNewVisitor', async(req, res) => {
     visitTime, 
     comments)
     VALUES($1, $2, $3, $4, $5, $6)
-    RETURNING *;`, [req.body.visitorName, req.body.assistentName, req.body.age, req.body.date, req.body.time, req.body.comments])
+    RETURNING *;`, [req.body.visitorname, req.body.assistantname, req.body.visitorage, req.body.visitdate, req.body.visittime, req.body.comments])
 
     res.send(record.rows)
 

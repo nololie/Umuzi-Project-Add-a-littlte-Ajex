@@ -3,10 +3,21 @@ var request = new Request('http://localhost:1221/addNewVisitor', {
 	headers: new Headers({
 		'Content-Type': 'application/json'
     }),
-    body:JSON.stringify()
+    body: JSON.stringify(new FormData(document.getElementById("visitorForm")))
 });
 
-document.getElementById("sumitButton").addEventListener("click", (e) => {
-    alert("Hi I am submitable.");
-    
-})
+function addVisit(e) {
+
+    fetch(
+        request
+    )
+    .then((res) => {
+        if (res.ok){
+        return res.json();
+        } else {
+        throw new Error ('Something went wrong with your fetch');
+        }
+    }).then((json) => {
+        console.log(json);
+    })
+}
