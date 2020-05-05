@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static('.'));
 
-app.get('/single-page-app', async(req, res) => {
+app.get('/single-page-app', async(req, res) => {    
     res.sendFile(path.join(__dirname + '/../Ajex.html'))
 });
 

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style href=""></style>
+    <title>Ajex Form</title>
+</head>
+
+<body id="body">
+    <div class="addVisitor">
+        <h2 id=h1>Enter Visit details.</h2>
+        <br>
+    </div>
+
+    <table class="table">
+        <tr>
+            <th>Visitor ID</th>
+            <th>Visitor Name</th>
+            <th>Assistant Name</th>
+            <th>Visitor Age</th>
+            <th>Visit Date</th>
+            <th>Visit Time</th>
+            <th>Comment</th>
+            <th>Action</th>
+        </tr>
+        <div class="data">
+        </div>
+        <tr class="addVisit">
+            <td>
+                <form id="visitorForm" onsubmit="addVisit()" autocomplete="on">
+                    <input required type="text" id="visitorID" name="visitorID" placeholder="visitorID" disabled>
+                </form>
+            </td>
+            <td>
+                <form id="visitorForm">
+                    <input required type="text" id="visitorName" name="visitorname" placeholder="visitorName" autofocus>
+                </form>
+            </td>
+            <td>
+                <form id="visitorForm">
+                    <input required type="text" id="assistentName" name="assistantname" placeholder="assistentName">
+                </form>
+            </td>
+            <td>
+                <form id="visitorForm">
+                    <input required type="number" id="visitorAge" name="visitorage" placeholder="visitorAge">
+                </form>
+            </td>
+            <td>
+                <form id="visitorForm">
+                    <input required type="date" id="visitDate" name="visitdate">
+                </form>
+            </td>
+            <td>
+                <form id="visitorForm">
+                    <input required type="time" id="visitTime" name="visittime">
+                </form>
+            </td>
+            <td>
+                <form id="visitorForm">
+                    <input required type="text" id="comments" name="comments" placeholder="Comments">
+                </form>
+            </td>
+            <td>
+                <form id="visitorForm">
+                    <input type="submit" value="Add visit">
+                </form>
+            </td>
+        </tr>
+    </table>
+    
+    <script src="http://localhost:1221/src/Ajex.js"></script>
+</body>
+</html>
