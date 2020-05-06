@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(express.static('.'));
 
 app.get('/single-page-app', async(req, res) => {    
-    res.sendFile(path.join(__dirname + '/../Ajex.html'))
+    res.sendFile(path.join(`${__dirname}/../public/Ajex.html`))
 });
 
 app.post('/addNewVisitor', async(req, res) => {

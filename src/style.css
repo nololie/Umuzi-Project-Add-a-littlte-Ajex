@@ -1,0 +1,18 @@
+body{
+    text-align: center;
+    margin: 2vh;
+    padding:3vh;
+    background: rgba(189, 183, 107, 0.418);
+}
+table{
+    padding: 10px;
+    border-collapse: collapse;
+}
+input{
+    padding: 5px;
+}
+tr, th, td{
+    border: 1px solid;
+}
+
+tr:nth-child(::-webkit-meter-even-less-good-value) {background: rgb(167, 44, 44)}
