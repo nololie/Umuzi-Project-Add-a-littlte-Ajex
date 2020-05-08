@@ -9,35 +9,30 @@
 </head>
 
 <body id="body">
-    <h2 id=h1>Enter Visit details.</h2><br>
-    <tr class="addVisit">
-        <form id="visitorForm" autocomplete="on">
-            <td>
-                <input required type="text" id="visitorName" name="visitorname" placeholder="visitorName" autofocus>
-            </td>
-            <td>
-                <input required type="text" id="assistentName" name="assistantname" placeholder="assistentName">
-            </td>
-            <td>
-                <input required type="number" id="visitorAge" name="visitorage" placeholder="visitorAge">
-            </td>
-            <td>
-                <input required type="date" id="visitDate" name="visitdate">
-            </td>
-            <td>
-                <input required type="time" id="visitTime" name="visittime">
-            </td>
-            <td>
-                <input required type="text" id="comments" name="comments" placeholder="Comments">
-            </td>
-            <td>
-                <input type="submit" value="Add visit">
-            </td>
+    <div id="option">
+        <button id="addVisitor" onclick="formDisplay()">Record new visits</button>
+        <button id="viewVisitors" onclick="listAllVisits()">View all visits</button>
+    </div><br>
+    
+    <div id="formDisplay">
+        <h1 id=h1>Enter Visit details.</h1><br>
+        <form id=visitorForm autocomplete="on">
+            <label for="visitorName">Visitor Name</label><br>
+            <input required type="text" id="visitorName" name="visitorname" placeholder="visitorName" autofocus><br>
+            <label for="helperName">Your Name</label><br>
+            <input required type="text" id="assistentName" name="assistantname" placeholder="assistentName"><br>
+            <label for="visitorAge">Visitor's Age</label><br>
+            <input required type="number" id="visitorAge" name="visitorage" placeholder="visitorAge"><br>
+            <label for="visitDate">Date</label><br>
+            <input required type="date" id="visitDate" name="visitdate"><br>
+            <label for="VisitTime">Visit Time</label><br>
+            <input required type="time" id="visitTime" name="visittime"><br>
+            <label for="comments">Add Comments</label><br>
+            <input required type="text" id="comments" name="comments" placeholder="Comments"><br>
+            <input type="submit" value="Add visit">
         </form>
-    </tr><br>
-
-    <h2 id=h1>All visits</h2><br><br>
-
+    </div><br>
+    
     <table id="table"></table>
         
     <script src="http://localhost:1221/Ajex.js"></script>

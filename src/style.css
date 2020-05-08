@@ -1,18 +1,76 @@
 body{
-    text-align: center;
     margin: 2vh;
     padding:3vh;
     background: rgba(189, 183, 107, 0.418);
 }
+
+#formDisplay{
+    display: none;
+}
+
+#visitorForm {
+    padding: 1%;
+    border: rgb(25, 41, 36);
+    border-style: ridge;
+    font-weight: 600;
+    background-color: rgba(0, 131, 87, 0.336);
+}
+
+input {
+    margin-bottom: 10px;
+    border-color: rgba(0, 0, 0, 0.432);
+}
+
+input[type='text'] {
+    width: 100%;
+}
+
+.comments {
+    height: 20vh;
+}
+
+input[type='submit'] {
+    width: 25%;
+    height: 5vh;
+    font: 15px;
+}
+
 table{
-    padding: 10px;
     border-collapse: collapse;
 }
-input{
-    padding: 5px;
-}
+
 tr, th, td{
     border: 1px solid;
+    padding: 5px 10px 5px 10px;
+}
+
+h1{
+    text-align: center;
+}
+
+#option{
+    text-align: center;
+}
+
+button{
+    font-weight: bolder;
+    border: 5px solid rgba(0, 0, 0, 0.432);
+    background: rgba(238, 74, 151, 0.432);
+    width: 80vh;
+    height: 40vh;
+    font-size: 40px;
+}
+
+button:hover{
+    background: rgb(83, 173, 120);
+}
+
+.delete{
+    width: auto;
+    height: auto;
+    border: 2px solid rgba(0, 0, 0, 0.432);
+    font-size: 20px;
+    font-weight: normal;
 }
 
 tr:nth-child(::-webkit-meter-even-less-good-value) {background: rgb(167, 44, 44)}

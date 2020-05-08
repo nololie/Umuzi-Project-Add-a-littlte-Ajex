@@ -1,3 +1,8 @@
+function formDisplay(){
+    document.getElementById("option").style.display = "none";
+    document.getElementById("formDisplay").style.display = "block"
+}
+
 let form = document.getElementById("visitorForm");
 form.addEventListener("submit",(event) => {
     event.preventDefault();
@@ -35,7 +40,8 @@ function listAllVisits(){
     fetch(request)
     .then((res) => {return res.json()})
     .then((json) => {
-        document.getElementById("table").innerHTML +=   `<tr>
+        document.getElementById("table").innerHTML +=  `<h2 id=h1>All visits</h2><br>
+                                                        <tr>
                                                         <th>Visitor ID</th>
                                                         <th>Visitor Name</th>
                                                         <th>Assistant Name</th>
@@ -54,9 +60,26 @@ function listAllVisits(){
                         <td>${json[i].visitdate}</td>
                         <td>${json[i].visittime}</td>
                         <td>${json[i].comments}</td>
+                    <td><button class=delete id=${json[i].visitorid}>Delete</button></td>
                         </tr>`
             document.getElementById("table").innerHTML += data;
-        }
-        
+        } 
+        // alert(document.getElementsByClassName("delete")[1].id)
     })
 }
+
+document.getElementsByClassName("delete").addEventListener("click", (event) => {
+    alert(event)
+    // let request = new Request(`http://localhost:1221//deleteVisitor${event.id}`, {method: 'DELETE'});
+
+    // fetch(request)
+    // .then((res) => {
+    //     return res.json()
+    // })
+    // .then((json) => {
+    //     listAllVisits(); 
+    // })
+    // .catch((err) => {
+    //     console.log(err);
+    // })
+})
