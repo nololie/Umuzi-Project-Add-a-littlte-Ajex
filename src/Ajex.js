@@ -60,26 +60,29 @@ function listAllVisits(){
                         <td>${json[i].visitdate}</td>
                         <td>${json[i].visittime}</td>
                         <td>${json[i].comments}</td>
-                    <td><button class=delete id=${json[i].visitorid}>Delete</button></td>
+                        <td>
+                        <button class=delete id=${json[i].visitorid}>Delete</button>
+                        </td>
                         </tr>`
             document.getElementById("table").innerHTML += data;
-        } 
-        // alert(document.getElementsByClassName("delete")[1].id)
+            let delrteBtn = document.getElementById(`${json[i].visitorid}`)
+            delrteBtn.addEventListener("click", deleteVisit) 
+        }
     })
 }
 
-document.getElementsByClassName("delete").addEventListener("click", (event) => {
-    alert(event)
-    // let request = new Request(`http://localhost:1221//deleteVisitor${event.id}`, {method: 'DELETE'});
+function deleteVisit(event){
+    alert(`Event: ${event.target.id}`)
+    let request = new Request(`http://localhost:1221/deleteVisitor${event.target.id}`, {method: 'DELETE'});
 
-    // fetch(request)
-    // .then((res) => {
-    //     return res.json()
-    // })
-    // .then((json) => {
-    //     listAllVisits(); 
-    // })
-    // .catch((err) => {
-    //     console.log(err);
-    // })
-})
+    fetch(request)
+    .then((res) => {
+        return res.json()
+    })
+    .then((json) => {
+        listAllVisits(); 
+    })
+    .catch((err) => {
+        console.log(err);
+    })
+}
