@@ -61,18 +61,15 @@ function listAllVisits(){
                         <td>${json[i].visittime}</td>
                         <td>${json[i].comments}</td>
                         <td>
-                        <button class=delete id=${json[i].visitorid}>Delete</button>
+                        <button class=delete id=${json[i].visitorid} onclick="deleteVisit()">Delete</button>
                         </td>
                         </tr>`
             document.getElementById("table").innerHTML += data;
-            let delrteBtn = document.getElementById(`${json[i].visitorid}`)
-            delrteBtn.addEventListener("click", deleteVisit) 
         }
     })
 }
 
-function deleteVisit(event){
-    alert(`Event: ${event.target.id}`)
+function deleteVisit(){
     let request = new Request(`http://localhost:1221/deleteVisitor${event.target.id}`, {method: 'DELETE'});
 
     fetch(request)
